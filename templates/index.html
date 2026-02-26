@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/styles.css?v=20260226-1">
+</head>
+<body>
+    <div class="main-content">
+        <h1>🌲 {{ title }}</h1>
+        <div id="tree-container" class="view-content"></div>
+        <div id="json-container" class="view-content hidden">
+            <h3>JSON 代码编辑</h3>
+            <textarea id="json-editor" class="json-editor" placeholder="在此编辑 JSON 数据..."></textarea>
+            <button class="btn-primary" id="updateTreeBtn">更新树结构</button>
+        </div>
+    </div>
+
+    {% include 'components/sidebar.html' %}
+
+    <script>
+        // Initialize with the tree data passed from the server
+        const initialTreeData = {{ tree_data | tojson }};
+    </script>
+    <script src="/static/app.js?v=20260226-1"></script>
+    <script>
+        // Start the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initApp(initialTreeData);
+        });
+    </script>
+</body>
+</html>

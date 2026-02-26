@@ -1,0 +1,78 @@
+<div class="sidebar">
+    <!-- Input Section -->
+    <div class="sidebar-section input-panel">
+        <div class="section-header">
+            <h3>📥 数据输入</h3>
+            <div class="input-switch">
+                <label class="switch">
+                    <input type="checkbox" id="inputToggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="inputLabel">上传文件</span>
+            </div>
+        </div>
+
+        <!-- File Upload Section -->
+        <div id="file-upload-section" class="input-section">
+            <div class="file-input-wrapper">
+                <input type="file" id="json-file" accept=".json" multiple onchange="handleFileUpload(event)">
+                <label for="json-file" class="file-label">
+                    <div>点击选择 JSON 文件</div>
+                    <div style="font-size: 11px; margin-top: 6px; opacity: 0.7;">支持多选，或拖拽到此处</div>
+                </label>
+            </div>
+        </div>
+
+        <!-- Text Input Section -->
+        <div id="text-input-section" class="input-section hidden">
+            <textarea id="json-text" class="json-textarea" placeholder="在此粘贴 JSON 数据..."></textarea>
+            <button class="btn-primary" onclick="handleTextInput()">添加到列表</button>
+        </div>
+    </div>
+
+    <!-- File List Section -->
+    <div class="sidebar-section file-panel">
+        <div class="section-header">
+            <h3>📋 文件列表</h3>
+            <!-- View Switcher -->
+            <div class="view-switcher-mini">
+                <button class="view-btn" id="visualBtn" onclick="switchView('visual')" title="可视化模式">
+                    👁️
+                </button>
+                <button class="view-btn" id="jsonBtn" onclick="switchView('json')" title="JSON编辑模式">
+                    📝
+                </button>
+            </div>
+        </div>
+        <div class="file-sort-row">
+            <label for="sortMode">排序方式</label>
+            <select id="sortMode" class="sort-select">
+                <option value="manual">手动排序</option>
+                <option value="name">文件名排序</option>
+                <option value="time">上传时间排序</option>
+            </select>
+        </div>
+        <div id="sortHint" class="sort-hint">手动模式：可拖动条目调整顺序</div>
+        <div class="file-list-container">
+            <div id="file-list" class="file-list"></div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls-bottom">
+            <button class="nav-btn" id="prevBtn" onclick="switchToPrev()" disabled>
+                ◀ 上一个
+            </button>
+            <div class="file-counter">
+                <span id="currentIndex">0</span> / <span id="totalFiles">0</span>
+            </div>
+            <button class="nav-btn" id="nextBtn" onclick="switchToNext()" disabled>
+                下一个 ▶
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Messages -->
+    <div id="error-message" class="error-message"></div>
+    <div id="success-message" class="success-message"></div>
+</div>

@@ -1,0 +1,18 @@
+[project]
+name = "treevis"
+version = "0.1.0"
+description = "A tree visualization tool with collapsible nodes"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.34.0",
+    "jinja2>=3.1.0",
+    "python-multipart>=0.0.6",
+]
+
+[project.scripts]
+treevis = "treevis.main:main"
+
+[tool.uv]
+package = true
