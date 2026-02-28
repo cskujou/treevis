@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="/static/styles.css?v=20260226-1">
+    <link rel="stylesheet" href="/static/styles.css?v=20260228-1">
 </head>
 <body>
     <div class="main-content">
         <h1>🌲 {{ title }}</h1>
+        <div class="tree-toolbar">
+            <button id="zoomOutBtn" class="zoom-btn" title="缩小">-</button>
+            <span id="zoomValue" class="zoom-value">100%</span>
+            <button id="zoomInBtn" class="zoom-btn" title="放大">+</button>
+            <button id="zoomResetBtn" class="zoom-btn reset" title="重置缩放">重置</button>
+        </div>
         <div id="tree-container" class="view-content"></div>
         <div id="json-container" class="view-content hidden">
             <h3>JSON 代码编辑</h3>
@@ -23,7 +29,11 @@
         // Initialize with the tree data passed from the server
         const initialTreeData = {{ tree_data | tojson }};
     </script>
-    <script src="/static/app.js?v=20260226-1"></script>
+    <script src="/static/js/state.js?v=20260228-2"></script>
+    <script src="/static/js/tree.js?v=20260228-2"></script>
+    <script src="/static/js/files.js?v=20260228-2"></script>
+    <script src="/static/js/ui.js?v=20260228-2"></script>
+    <script src="/static/app.js?v=20260228-2"></script>
     <script>
         // Start the application
         document.addEventListener('DOMContentLoaded', function() {

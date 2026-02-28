@@ -38,13 +38,16 @@ Use any of these methods:
 
 - Click file name to view
 - Hover and click × to remove
-- Default tree cannot be removed
+- Default tree can also be removed
 
 ### 5. Interactive Tree
 
 - Click nodes to collapse/expand
 - Smooth animations
 - Connection lines update automatically
+- Use zoom buttons (放大 / 缩小 / 重置)
+- Mouse wheel on visualization area to zoom
+- Hold `Space` and drag with left mouse button to pan
 
 ## JSON Format
 
@@ -98,6 +101,7 @@ uv run python -m main --host 0.0.0.0 --port 8080
 |-----|--------|
 | ← (Left Arrow) | Previous file |
 | → (Right Arrow) | Next file |
+| Space + Drag | Pan tree viewport |
 | Click node | Collapse/expand |
 
 ## Troubleshooting
